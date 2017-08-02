@@ -1,38 +1,47 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/w3.css"/>
-     <link rel="stylesheet" href="css/style.css"/>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/w3.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
 
 <body>
-  <div class="outer-wrapper">
-    <div class="new-note">
-      <input type="text" placeholder="Insert Link">
-      <button class="add">Add</button>
+   <div id="tail_frame">
+    <div id="table-tails">
+      
     </div>
-    <div class="">
-        <input id="milk" class="w3-check" type="checkbox" checked="">
-        <label>Only MP3 audio</label></p>
+      <button id="new-btn" class="w3-btn">New Video</button>
+  </div>
 
-        <div>
-          <input id="part_equal" class="w3-check" type="checkbox" checked="checked">
-          <label>Split in equal parts</label></p>
-         
+  <div id="add_frame" class="hide">
+        <div class="w3-container">
+          <input class="w3-border" type="text" placeholder="Insert Link">
         </div>
-        
-        <div>
-           <input id="part_by" class="w3-check" type="checkbox" checked="checked">
-           <label>Split in parts of: <input id="part_size" class="w3-check" type="number" checked="checked"> minutes</label></p>
-           
-        </div>
-       
 
-    </div>
- 
-    </div>
+        <div class="">
+
+              <input id="milk" class="w3-check" type="checkbox" >
+              <label>Only MP3 audio</label></p>
+              <div>
+                <label>Split</label></p>
+                  <div class="w3-border">
+                     <input id="part_equal" name="part" class="w3-check" value="0" type="radio">
+                    <label>None</label></p>
+
+                    <input id="part_equal" name="part" class="w3-check" value="1" type="radio">
+                    <label>Split in equal parts</label></p>
+
+                    <input id="part_by" name="part" class="w3-check" value="2" type="radio" >
+                    <label>Split parts of: <input id="part_size" class="w3-check w3-margin" type="number" min="1"> minutes</label></p>
+                  </div>
+              </div>
+              
+        </div>
+
+        <button id="add-btn">Add</button>
+        <button id="cancel-btn">cancel</button>
   </div>
 
   <script src="quicknote.js"></script>

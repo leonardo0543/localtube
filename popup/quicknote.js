@@ -1,21 +1,27 @@
 /* initialise variables */
 
-var inputTitle = document.querySelector('.new-note input');
-var inputBody = document.querySelector('.new-note textarea');
-
-var noteContainer = document.querySelector('.note-container');
-
-
-var clearBtn = document.querySelector('.clear');
-var addBtn = document.querySelector('.add');
+var addBtn = document.getElementById('add-btn');
+var frameAdd=document.getElementById('add_frame');
+var frameTail= document.getElementById('tail_frame');
+var newBtn = document.getElementById('new-btn');
+var cancelBtn = document.getElementById('cancel-btn');
 
 /*  add event listeners to buttons */
 
-addBtn.addEventListener('click', addNote);
+newBtn.addEventListener('click', switchDisplay);
+cancelBtn.addEventListener('click', switchDisplay);
 clearBtn.addEventListener('click', clearAll);
 
 /* generic error handler */
 function onError(error) {
+  console.log(error);
+}
+
+function hide() {
+  console.log(error);
+}
+
+function display(error) {
   console.log(error);
 }
 
@@ -35,6 +41,17 @@ function initialize() {
 }
 
 /* Add a note to the display, and storage */
+function switchDisplay() {
+  if(!frameTail.classList.contains("hide")){
+      frameTail.classList.add("hide");
+      frameAdd.classList.remove("hide");
+  }
+  else{
+      frameTail.classList.remove("hide");
+      frameAdd.classList.add("hide");
+  }
+}
+
 
 function addNote() {
   var noteTitle = inputTitle.value;
