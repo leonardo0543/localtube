@@ -1,16 +1,17 @@
 /* initialise variables */
 
 var addBtn = document.getElementById('add-btn');
-var frameAdd=document.getElementById('add_frame');
+var frameOptions=document.getElementById('options_frame');
 var frameTail= document.getElementById('tail_frame');
-var newBtn = document.getElementById('new-btn');
+var moreTag = document.getElementById('more_tag');
 var cancelBtn = document.getElementById('cancel-btn');
 
 /*  add event listeners to buttons */
 
-newBtn.addEventListener('click', switchDisplay);
-cancelBtn.addEventListener('click', switchDisplay);
-clearBtn.addEventListener('click', clearAll);
+moreTag.addEventListener('click', switchDisplay);
+//options_frame .addEventListener('mouseout', switchDisplay);
+//cancelBtn.addEventListener('click', switchDisplay);
+//clearBtn.addEventListener('click', clearAll);
 
 /* generic error handler */
 function onError(error) {
@@ -42,13 +43,15 @@ function initialize() {
 
 /* Add a note to the display, and storage */
 function switchDisplay() {
-  if(!frameTail.classList.contains("hide")){
-      frameTail.classList.add("hide");
-      frameAdd.classList.remove("hide");
+  if(frameOptions.classList.contains("hide")){
+      //frameTail.classList.add("hide");
+      frameOptions.classList.remove("hide");
+      moreTag.text = "Hide";
   }
   else{
-      frameTail.classList.remove("hide");
-      frameAdd.classList.add("hide");
+      //frameTail.classList.remove("hide");
+      frameOptions.classList.add("hide");
+      moreTag.text = "Show Options";
   }
 }
 

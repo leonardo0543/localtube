@@ -5,3 +5,11 @@ body{
 .hide{
 	display: none;
 }
+.spinner{
+	width: 35px;
+	position: static;
+}
+.toolbox{
+	padding-top: 0;
+	padding-bottom: 0;
+}
