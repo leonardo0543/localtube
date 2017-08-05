@@ -5,48 +5,70 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/w3.css"/>
   <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
-   <div id="tail_frame">
-    <div id="table-tails">
-      
+ <div class="w3-row" id="tail_frame">
+  <div class="w3-col m12">
+    <button class="w3-button w3-col m12 w3-red">Download Video</button>
+    <a id="more_tag" class="w3-btn w3-round w3-small w3-black w3-col m12 toolbox">Show Options</a> 
+  </div>
+  
+  <div id="options_frame" class="w3-col m12 hide" >
+
+    
+    <div  class="w3-row w3-container w3-border">
+      <input id="milk" class="w3-check" type="checkbox" >
+      <label>Only MP3 audio</label></p>
     </div>
-      <button id="new-btn" class="w3-btn">New Video</button>
+
+    <div class="w3-col m12 w3-border">
+     <div  class="w3-row w3-container">
+      <input id="part_equal" name="part" class="w3-check" value="0" type="radio" checked="checked">
+      <label>Entire</label>
+    </div>
+
+    <div class="w3-row w3-container">
+      <input id="part_equal" name="part" class="w3-check" value="1" type="radio">
+      <label>Split in </label>
+      <input id="n_part" class="w3-check spinner" type="number" min="1">
+      <label> equal parts</label>
+    </div>
+
+    <div class="w3-row w3-container">
+      <input id="part_by" name="part" class="w3-check" value="2" type="radio" >
+      <label>Split parts of: </label>
+      <input id="min_part" class="w3-check spinner" type="number" min="1">
+      <label> min</label>
+    </div>    
+
+    <input id="part_equal" name="part" class="w3-check" value="1" type="radio">
+    <label>Split in equal parts</label></p>
+    <div class="">
+      <input id="part_by" name="part" class="w3-check" value="2" type="radio" >
+      <label>Split parts of: <input id="part_size" class="w3-margin" type="number" min="1"> min</label></p>
+    </div>
+    
   </div>
+</div>
 
-  <div id="add_frame" class="hide">
-        <div class="w3-container">
-          <input class="w3-border" type="text" placeholder="Insert Link">
-        </div>
+</div>
 
-        <div class="">
 
-              <input id="milk" class="w3-check" type="checkbox" >
-              <label>Only MP3 audio</label></p>
-              <div>
-                <label>Split</label></p>
-                  <div class="w3-border">
-                     <input id="part_equal" name="part" class="w3-check" value="0" type="radio">
-                    <label>None</label></p>
 
-                    <input id="part_equal" name="part" class="w3-check" value="1" type="radio">
-                    <label>Split in equal parts</label></p>
-                    <div class="">
-                      <input id="part_by" name="part" class="w3-check" value="2" type="radio" >
-                      <label>Split parts of: <input id="part_size" class="w3-margin" type="number" min="1"> min</label></p>
-                    </div>
-                    
-                  </div>
-              </div>
-              
-        </div>
+</div>
 
-        <button id="add-btn">Add</button>
-        <button id="cancel-btn">cancel</button>
-  </div>
+<div id="table-tails w3-col m12">
 
-  <script src="download.js"></script>
+</div>
+
+</div>
+
+
+
+
+<script src="download.js"></script>
 </body>
 
 </html>
