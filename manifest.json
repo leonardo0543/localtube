@@ -18,7 +18,7 @@
      "32" : "icons/download-32.png"
     },
     "default_title": "LocalTube",
-    "default_popup": "popup/quicknote.html"
+    "default_popup": "popup/view.html"
   },
 
   "applications": {

@@ -5,3 +5,13 @@ body{
 .hide{
 	display: none;
 }
+
+.flex{
+	display: flex;
+}
+.column{
+	flex-direction: column;
+}
+.row{
+	flex-direction: row;
+}
