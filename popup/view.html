@@ -6,69 +6,82 @@
   <link rel="stylesheet" href="css/w3.css"/>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <meta http-equiv="Content-Security-Policy" content="default-src *;
+   img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+   style-src  'self' 'unsafe-inline' *">
 </head>
+
 
 <body>
  <div class="w3-row" id="tail_frame">
   <div class="w3-col m12">
-    <button class="w3-button w3-col m12 w3-red">Download Video</button>
-    <a id="more_tag" class="w3-btn w3-round w3-small w3-black w3-col m12 toolbox">Show Options</a> 
+    <button id="download-btn" class="w3-button w3-col m12 w3-red">Download Video</button>
   </div>
-  
+    </div>
+
+      <div class="row">
+      <a id="more_tag" class="w3-third w3-btn w3-round w3-small w3-black toolbox">Options</a>
+      <a id="clear_tag" class="w3-third w3-btn w3-round w3-small w3-black toolbox">Clean</a>
+      <a id="open_tag" class="w3-third w3-btn w3-round w3-small w3-black toolbox">Downloads</a>
+
+    </div>
+
   <div id="options_frame" class="w3-col m12 hide" >
 
-    
+
     <div  class="w3-row w3-container w3-border">
-      <input id="milk" class="w3-check" type="checkbox" >
-      <label>Only MP3 audio</label></p>
+      <input id="is-audio" class="w3-check" type="checkbox">
+      <label class="w3-small">Only MP3 audio</label></p>
     </div>
 
     <div class="w3-col m12 w3-border">
      <div  class="w3-row w3-container">
-      <input id="part_equal" name="part" class="w3-check" value="0" type="radio" checked="checked">
-      <label>Entire</label>
+      <input id="part_equal" name="part" class="w3-check" type="radio" checked="checked">
+      <label class="w3-small">Entire</label>
+    </div>
+
+
+    <div class="w3-row w3-container">
+      <input id="part_equal" name="part" class="w3-check" type="radio">
+      <label class="w3-small">Split in </label>
+      <input id="n_part" class="w3-check spinner" type="number" min="2">
+      <label class="w3-small"> equal parts</label>
     </div>
 
     <div class="w3-row w3-container">
-      <input id="part_equal" name="part" class="w3-check" value="1" type="radio">
-      <label>Split in </label>
-      <input id="n_part" class="w3-check spinner" type="number" min="1">
-      <label> equal parts</label>
-    </div>
-
-    <div class="w3-row w3-container">
-      <input id="part_by" name="part" class="w3-check" value="2" type="radio" >
-      <label>Split parts of: </label>
+      <input id="part_by" name="part" class="w3-check" type="radio" >
+      <label class="w3-small">Split parts of: </label>
       <input id="min_part" class="w3-check spinner" type="number" min="1">
-      <label> min</label>
-    </div>    
-
-    <input id="part_equal" name="part" class="w3-check" value="1" type="radio">
-    <label>Split in equal parts</label></p>
-    <div class="">
-      <input id="part_by" name="part" class="w3-check" value="2" type="radio" >
-      <label>Split parts of: <input id="part_size" class="w3-margin" type="number" min="1"> min</label></p>
+      <label class="w3-small"> min</label></p>
     </div>
-    
-  </div>
-</div>
+  </div>    
 
 </div>
 
 
+<div id="table-tails" class="w3-col m12">
+
+    <!-- <div class="">
+        <div class="row w3-row between w3-border">
+        <div id="myQueue" class="w3-col m12 column">
+          <label class="w3-small w3-text-black" id="video-title">La Música de Hoy Apesta</label>
+          <label class="w3-tiny w3-text-gray" id="video-State">In Queue</label>
+        </div>
+        </div>
+    </div>
+
+    <div class="">
+        <div class="row w3-row between w3-border">
+        <div id="myQueue" class="w3-col m12 column">
+          <label class="w3-small w3-text-black" id="video-title">La hija del mariachi</label>
+          <label class="w3-tiny w3-text-gray" id="video-State">In Queue</label>
+        </div>
+        </div>
+    </div> -->
 
 </div>
-
-<div id="table-tails w3-col m12">
-
-</div>
-
-</div>
-
-
-
-
-<script src="download.js"></script>
+<script src="js/download.js"></script>
 </body>
 
 </html>

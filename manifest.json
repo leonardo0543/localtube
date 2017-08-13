@@ -4,14 +4,30 @@
   "name": "LocalTube",
   "version": "1.1",
 
-  "description": "Allows the user to make quick notes by clicking a button and entering text into the resulting popup. The notes are saved in storage. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#quicknote",
+  "description": "Download youtube videos",
   "icons": {
     "48": "icons/download-48.png"
   },
 
+"content_security_policy": "script-src 'self' https://www.googleapis.com blob: filesystem: chrome-extension-resource: ;object-src 'self'",
+
   "permissions": [
-    "storage"
+    "activeTab",
+    "downloads",
+    "storage",
+    "tabs",
+    "*://developer.mozilla.org/*",
+    "webRequest",
+    "https://www.googleapis.com/*",
+    "http://ajax.googleapis.com/",
+    "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
   ],
+
+  "background": {
+    "scripts": [
+      "popup/js/download.js"
+    ]
+  },
 
   "browser_action": {
     "default_icon": {
@@ -20,11 +36,13 @@
     "default_title": "LocalTube",
     "default_popup": "popup/view.html"
   },
-
-  "applications": {
-    "gecko": {
-      "id": "quicknote-example@mozilla.org"
+  "content_scripts": [
+    {
+     "matches": ["http://*/*", "https://*/*"],
+      "js": ["popup/js/jquery-3.2.1.min.js", "popup/js/download.js"]
     }
-  }
+  ]
 
 }
+
+ 
