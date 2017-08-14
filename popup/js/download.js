@@ -26,9 +26,17 @@ var cancelBtn = document.getElementById('cancel-btn');
 var tableTails = document.getElementById('table-tails');
 var donwloadBtn = document.getElementById('download-btn');
 var showBtn = document.getElementById("open_tag");
-console.log(showBtn);
 var moreTag = document.getElementById('more_tag');
 var clearBtn =document.getElementById('clear_tag');
+
+//var spinnerParts = document.getElementById('n_part'); //amount of n equal parts
+//var spinnerTime =document.getElementById('min_part'); //amount of parts of n minutes
+var audioCheck = document.getElementById('is-audio');
+
+
+// var isVideo = !(audioCheck.checked);
+// var splitPart = 0;
+// var timePart= 0;
 
 var keyAPI = 'AIzaSyDDJjvq0etG9FtJF2WpAezoHz31yjEgtKQ';
 var isChrome = !!window.chrome;
@@ -43,18 +51,47 @@ donwloadBtn.onclick = function(){
   downloadVideo();
 }
 
+
 function downloadVideo() {
     chrome.tabs.query({
       active: true, 
       currentWindow: true},
       function(arrayOfTabs) {
+         var selectedRadio= $("input[name='part']:checked").val();
          var activeTab = arrayOfTabs[0];
          var url = activeTab.url; // or do whatever you need
-         var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+
+         var isVideo = !(audioCheck.checked);
+         var splitPart = 0;
+         var timePart= 0;
+  
+         switch(selectedRadio) {
+           case '1': //n parts
+              splitPart = parseInt($('#n_part').val());
+              if (splitPart <= 1 ||  Number.isNaN(splitPart)) {
+                alert('Error, the split parts must be higher than 1');
+                return;
+              }       
+           break;
+           case '2':
+              timePart = parseInt($('#min_part').val());
+              if (timePart <1 || Number.isNaN(timePart)) {
+                alert('Error, please set a value higher or equal 1');
+                return;
+              }
+           break;
+           default:
+            splitPart = 0;
+            timePart= 0;
+  }
+            console.log(isVideo);
+            console.log(splitPart);
+            console.log(timePart);
+            var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
          if(videoid != null) {
           var name =arrayOfTabs[0].title;
           var url= arrayOfTabs[0].url;
-          Videos.insert({url:url,name:name,state:state}).done(initialize);
+          Videos.insert({url:url,name:name,state:state, isvideo:isVideo, splitpart:splitPart, timepart:timePart}).done(initialize);
 
      }   else { 
           alert("The url is not valid.");
@@ -91,9 +128,13 @@ function display(error) {
   console.log(error);
 }
 
+function timer() {
+    setInterval(function(){ initialize(); }, 5000);
+}
 
 $(document).ready(function() {
   initialize();
+  timer();
 });
 
 
